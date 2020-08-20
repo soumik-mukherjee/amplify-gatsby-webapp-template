@@ -16,7 +16,7 @@ const App = () => (
       <PrivateRoute path="/app/profile" component={ Details } />
       <Login path="/app/login" />
       <SignUp path="/app/signup" />
-      <MyAccount path="/app/MyAccount" accountId="76584123" customerId="123"/>
+      <PrivateRoute path="/app/MyAccount" component={MyAccount} accountId="76584123" customerId="123"/>
     </Router>
   </Layout>
 )
