@@ -5,3 +5,8 @@
  */
 
 // You can delete this file if you're not using it
+
+// API components imports
+import RootWrapper from './src/components/core/RootWrapper'
+
+export const wrapRootElement = RootWrapper
