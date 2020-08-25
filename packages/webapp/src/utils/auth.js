@@ -1,4 +1,6 @@
-const isBrowser = typeof window !== `undefined`
+//import { authState } from './AuthContext'
+
+/*const isBrowser = typeof window !== `undefined`
 
 export const setUser = user => (window.localStorage.gatsbyUser = JSON.stringify(user))
 
@@ -24,3 +26,16 @@ export const logout = callback => {
   setUser({})
   callback()
 }
+*/
+
+/*
+export const initialAppAuthState = {
+  state: { ...authState },
+  get: function() {
+    return this.state
+  },
+  set: function(userInfo) {
+    this.state = { ...this.state, ...userInfo }
+  },
+}
+*/
