@@ -1,14 +1,14 @@
 // React imports
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+//import PropTypes from 'prop-types'
+
 // gatsby imports
-import { graphql, useStaticQuery } from 'gatsby'
+
 //Amplify imports
 import { Hub, Logger } from '@aws-amplify/core'
 import Auth from '@aws-amplify/auth'
 // My utilities
 import {
-  allAuthEventsListener,
   SignInUserActivityListener,
 } from '../../core/AmplifyAuthListeners'
 import { AuthContext, initialAppAuthState } from '../../api/AuthContext'

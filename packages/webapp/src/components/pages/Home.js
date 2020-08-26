@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import { AuthContext } from '../../api/AuthContext'
+import { MuiSignOutButton } from '@project/ui-components';
 
 const Home = () => {
   const auth = useContext(AuthContext)
@@ -12,13 +13,13 @@ const Home = () => {
         You are now logged in! <Link to="/app/profile">View profile</Link>
       </p>
 
-      <p
-        onClick={() => {
+      <MuiSignOutButton
+        onSignOutClick={() => {
           auth.signOut()
         }}
-      >
-        Click here to sign-out
-      </p>
+        color="primary"
+        size="medium"
+      />
     </div>
   )
 }

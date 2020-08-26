@@ -9,10 +9,10 @@
 // Import custom styles
 import './src/styles/global.css'
 
+import React from 'react'
+
 //Amplify imports
 import Amplify, { Hub } from '@aws-amplify/core'
-import Auth from '@aws-amplify/auth'
-import API from "@aws-amplify/api";
 
 // Core function imports
 import { authConfiguredEventListener } from './src/core/AmplifyAuthListeners'
@@ -22,6 +22,7 @@ import { ConfigKeys, AmplifyConfig } from '@project/customer-app-service'
 
 // API components imports
 import RootWrapper from './src/components/core/RootWrapper'
+import AppShell from './src/components/api/AppShell'
 
 // To enable service worker, uncomment the code block below
 /*
@@ -77,11 +78,11 @@ const custBookmarkApiConfig = {
     process.env.CUSTOMER_BOOKMARKS_API_GRAPHQLENDPOINT,
   aws_appsync_region: process.env.CUSTOMER_BOOKMARKS_API_APPSYNC_REGION,
   aws_appsync_authenticationType:
-    process.env.CUSTOMER_BOOKMARKS_API_APPSYNC_AUTHENTICATION_TYPE
+    process.env.CUSTOMER_BOOKMARKS_API_APPSYNC_AUTHENTICATION_TYPE,
 }
 
 // Not very neat, but adding auth config to Api config object as well
-AmplifyConfig.addConfig(ConfigKeys.AUTH, awsAuthConfig);
+AmplifyConfig.addConfig(ConfigKeys.AUTH, awsAuthConfig)
 // Add these config value-objects to the singleton for later use
 AmplifyConfig.addConfig(ConfigKeys.CREDIT_CARD_OFFERS_API, ccOffersApiConfig)
 //console.log('CREDIT_CARD_OFFERS_API :', ccOffersApiConfig)
@@ -93,7 +94,13 @@ AmplifyConfig.addConfig(
 export const onClientEntry = () => {
   Hub.listen('auth', authConfiguredEventListener)
   let cfg = Amplify.configure(awsAuthConfig)
-  console.log('Amplify: ', cfg);
+  console.log('Amplify: ', cfg)
 }
 
 export const wrapRootElement = RootWrapper
+
+export const wrapPageElement = ({ element, props }) => {
+  if (props.location.pathname.match(/^\/app/)) {
+    return <AppShell {...props}>{element}</AppShell>
+  }
+}
