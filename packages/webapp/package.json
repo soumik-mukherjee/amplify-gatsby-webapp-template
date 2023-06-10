@@ -10,7 +10,7 @@
     "@project/customer-app-service": "0.0.0",
     "@project/ui-components": "0.0.0",
     "babel-plugin-styled-components": "^1.10.7",
-    "gatsby": "^2.20.12",
+    "gatsby": "^2.32.9",
     "gatsby-image": "^2.3.1",
     "gatsby-plugin-manifest": "^2.3.3",
     "gatsby-plugin-offline": "^3.1.2",
